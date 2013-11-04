@@ -11,6 +11,7 @@ public class Card implements Comparable<Card>
 		switch (value)
 		{
 			case "Ace":
+				face = true;
 				this.value = 14;
 				break;
 			case "Jack":
@@ -40,16 +41,6 @@ public class Card implements Comparable<Card>
 			default:
 				throw new IllegalArgumentException("Not a valid card value");
 		}
-	}
-	
-	public boolean isFaceCard()
-	{
-		return face;
-	}
-	
-	public String getSuit()
-	{
-		return suit;
 	}
 
 	@Override
