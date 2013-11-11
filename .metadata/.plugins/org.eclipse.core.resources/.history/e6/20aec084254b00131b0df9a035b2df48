@@ -14,6 +14,7 @@ public class Deck
 		for (i = 0; i < 9; i++)
 		{
 			cardArray[i] = new Card("Hearts", String.valueOf(i+2));
+			System.out.println(cardArray[i].toString());
 		}
 		cardArray[9] = new Card("Hearts", "Jack");
 		cardArray[10] = new Card("Hearts", "Queen");

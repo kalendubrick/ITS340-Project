@@ -51,6 +51,11 @@ public class Card implements Comparable<Card>
 	{
 		return suit;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 
 	@Override
 	public int compareTo(Card anotherCard) {

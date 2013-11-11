@@ -61,34 +61,4 @@ public class Card implements Comparable<Card>
 		else
 			return 0;
 	}
-	
-	@Override
-	public String toString()
-	{
-		String tempString = null;
-		
-		if (value <= 10)
-		{
-			tempString = value + " of " + suit;
-		}
-		else
-		{
-			switch (value)
-			{
-				case 11:
-					tempString = "Jack of " + suit;
-					break;
-				case 12:
-					tempString = "Queen of " + suit;
-					break;
-				case 13:
-					tempString = "King of " + suit;
-					break;
-				case 14:
-					tempString = "Ace of " + suit;
-			}
-		}
-		
-		return tempString;
-	}
 }

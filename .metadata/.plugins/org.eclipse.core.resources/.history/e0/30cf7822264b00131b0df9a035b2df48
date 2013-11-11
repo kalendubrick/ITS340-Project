@@ -16,6 +16,7 @@ public class Deck
 			cardArray[i] = new Card("Hearts", String.valueOf(i+2));
 		}
 		cardArray[9] = new Card("Hearts", "Jack");
+		System.out.println(cardArray[9].getValue());
 		cardArray[10] = new Card("Hearts", "Queen");
 		cardArray[11] = new Card("Hearts", "King");
 		cardArray[12] = new Card("Hearts", "Ace");

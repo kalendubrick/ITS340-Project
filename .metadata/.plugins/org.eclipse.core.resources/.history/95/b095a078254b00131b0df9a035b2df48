@@ -67,7 +67,7 @@ public class Card implements Comparable<Card>
 	{
 		String tempString = null;
 		
-		if (value <= 10)
+		if (value < 10)
 		{
 			tempString = value + " of " + suit;
 		}
@@ -77,13 +77,10 @@ public class Card implements Comparable<Card>
 			{
 				case 11:
 					tempString = "Jack of " + suit;
-					break;
 				case 12:
 					tempString = "Queen of " + suit;
-					break;
 				case 13:
 					tempString = "King of " + suit;
-					break;
 				case 14:
 					tempString = "Ace of " + suit;
 			}
