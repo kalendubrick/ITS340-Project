@@ -1,0 +1,16 @@
+import javax.swing.JFrame;
+
+
+public class GameTable extends JFrame{
+
+	public static void main(String[] args){
+		
+		JFrame gameTable = new GameTable();
+		gameTable.setTitle("Texas Hold'em");
+		gameTable.setSize(1024, 768);
+		gameTable.setLocation(100, 100);
+		gameTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gameTable.setVisible(true);
+		
+	}
+}

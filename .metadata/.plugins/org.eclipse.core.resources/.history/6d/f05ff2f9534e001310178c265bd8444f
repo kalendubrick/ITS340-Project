@@ -1,0 +1,137 @@
+package guiViews;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.SpringLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class GameTable extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameTable frame = new Main();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GameTable() {
+		setResizable(false);
+		setTitle("Texas Hold'em");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 917, 593);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JPanel dealerPanel = new JPanel();
+		dealerPanel.setBackground(new Color(0, 100, 0));
+		dealerPanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 100, 0));
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(38)
+					.addComponent(dealerPanel, GroupLayout.PREFERRED_SIZE, 825, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(38, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(217, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 476, GroupLayout.PREFERRED_SIZE)
+					.addGap(208))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(dealerPanel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 363, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(112, Short.MAX_VALUE))
+		);
+		SpringLayout sl_dealerPanel = new SpringLayout();
+		dealerPanel.setLayout(sl_dealerPanel);
+		
+		JLabel lblCurrentPot = new JLabel("Current Pot: ");
+		lblCurrentPot.setForeground(new Color(255, 255, 255));
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblCurrentPot, 10, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, lblCurrentPot, -650, SpringLayout.EAST, dealerPanel);
+		lblCurrentPot.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(lblCurrentPot);
+		
+		JLabel lblNewLabel = new JLabel("$500");
+		lblNewLabel.setForeground(Color.ORANGE);
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblNewLabel, 8, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.WEST, lblNewLabel, 6, SpringLayout.EAST, lblCurrentPot);
+		lblNewLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(lblNewLabel);
+		
+		JLabel lblCurrentBet = new JLabel("Current Bet:");
+		lblCurrentBet.setForeground(new Color(255, 255, 255));
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblCurrentBet, 10, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, lblCurrentBet, -113, SpringLayout.EAST, dealerPanel);
+		lblCurrentBet.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(lblCurrentBet);
+		
+		JLabel lblBet = new JLabel("$500");
+		lblBet.setForeground(Color.ORANGE);
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblBet, 8, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.WEST, lblBet, 6, SpringLayout.EAST, lblCurrentBet);
+		lblBet.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblBet.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		dealerPanel.add(lblBet);
+		
+		JButton btnNewButton = new JButton("Deal");
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, btnNewButton, 6, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, btnNewButton, -140, SpringLayout.WEST, lblCurrentBet);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(btnNewButton);
+		contentPane.setLayout(gl_contentPane);
+	}
+}

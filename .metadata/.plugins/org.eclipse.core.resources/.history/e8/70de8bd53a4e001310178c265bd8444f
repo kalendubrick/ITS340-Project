@@ -1,0 +1,54 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.border.MatteBorder;
+
+
+public class GameTableWindow {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameTableWindow window = new GameTableWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public GameTableWindow() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(0, 100, 0));
+		
+		JPanel tableCenter = new JPanel();
+		tableCenter.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		tableCenter.setBackground(new Color(0, 100, 0));
+		frame.getContentPane().add(tableCenter, BorderLayout.CENTER);
+		tableCenter.setLayout(new GridLayout(1, 0, 0, 0));
+		frame.setBounds(100, 100, 1025, 768);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}

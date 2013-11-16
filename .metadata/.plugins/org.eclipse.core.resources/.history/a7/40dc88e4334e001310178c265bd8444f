@@ -1,0 +1,19 @@
+package guiCreation;
+
+import javax.swing.JPanel;
+import java.awt.Color;
+
+public class GameBoardPanel extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public GameBoardPanel() {
+		setupPanel();
+	}
+
+	private void setupPanel() {
+		setBackground(new Color(0, 100, 0));
+	}
+
+}

@@ -1,0 +1,82 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Component;
+import java.awt.Rectangle;
+
+
+public class GameTableWindow {
+
+	private JFrame frmTexasHoldem;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameTableWindow window = new GameTableWindow();
+					window.frmTexasHoldem.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public GameTableWindow() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmTexasHoldem = new JFrame();
+		frmTexasHoldem.setTitle("Texas Hold'em");
+		frmTexasHoldem.setResizable(false);
+		frmTexasHoldem.getContentPane().setBackground(new Color(0, 100, 0));
+		
+		JPanel tableCenter = new JPanel();
+		tableCenter.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		tableCenter.setBackground(new Color(0, 100, 0));
+		frmTexasHoldem.getContentPane().add(tableCenter, BorderLayout.CENTER);
+		tableCenter.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JPanel topDealer = new JPanel();
+		topDealer.setBounds(new Rectangle(5, 0, 0, 0));
+		topDealer.setBackground(new Color(0, 100, 0));
+		topDealer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		frmTexasHoldem.getContentPane().add(topDealer, BorderLayout.NORTH);
+		
+		JLabel lblDealer = new JLabel("Dealer");
+		lblDealer.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		lblDealer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDealer.setBackground(new Color(0, 0, 0));
+		lblDealer.setForeground(new Color(255, 255, 255));
+		lblDealer.setFont(new Font("Calibri", Font.BOLD, 18));
+		topDealer.add(lblDealer);
+		
+		JPanel bottomPlayer = new JPanel();
+		bottomPlayer.setBackground(new Color(0, 100, 0));
+		bottomPlayer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		frmTexasHoldem.getContentPane().add(bottomPlayer, BorderLayout.SOUTH);
+		frmTexasHoldem.setBounds(100, 100, 663, 508);
+		frmTexasHoldem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}

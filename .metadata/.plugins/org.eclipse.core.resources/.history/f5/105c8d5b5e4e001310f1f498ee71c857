@@ -1,0 +1,228 @@
+package guiPackage;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.SpringLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
+import java.awt.Dimension;
+import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
+import javax.swing.JSpinner;
+
+public class GameTable extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textFieldCurrentPot;
+	private JTextField textFieldCurrentBet;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameTable frame = new GameTable();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GameTable() {
+		setResizable(false);
+		setTitle("Texas Hold'em");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 917, 593);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JPanel dealerPanel = new JPanel();
+		dealerPanel.setBackground(new Color(0, 100, 0));
+		dealerPanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		
+		JPanel drawPanel = new JPanel();
+		drawPanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		drawPanel.setBackground(new Color(0, 100, 0));
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel.setBackground(new Color(0, 100, 0));
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(38)
+							.addComponent(dealerPanel, GroupLayout.PREFERRED_SIZE, 825, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(217)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(drawPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))))
+					.addContainerGap(38, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(dealerPanel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(drawPanel, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel.setLayout(new SpringLayout());
+		SpringLayout sl_drawPanel = new SpringLayout();
+		drawPanel.setLayout(sl_drawPanel);
+		
+		JLabel lblCardDraw1 = new JLabel("");
+		lblCardDraw1.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblCardDraw1, 10, SpringLayout.NORTH, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblCardDraw1, 10, SpringLayout.WEST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblCardDraw1, 106, SpringLayout.NORTH, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblCardDraw1, 82, SpringLayout.WEST, drawPanel);
+		lblCardDraw1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		drawPanel.add(lblCardDraw1);
+		
+		JLabel lblCardDraw2 = new JLabel("");
+		lblCardDraw2.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblCardDraw2, 0, SpringLayout.NORTH, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblCardDraw2, 25, SpringLayout.EAST, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblCardDraw2, 0, SpringLayout.SOUTH, lblCardDraw1);
+		lblCardDraw2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		drawPanel.add(lblCardDraw2);
+		
+		JLabel lblCardDraw3 = new JLabel("");
+		lblCardDraw3.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblCardDraw3, 200, SpringLayout.WEST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblCardDraw3, -200, SpringLayout.EAST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblCardDraw2, -21, SpringLayout.WEST, lblCardDraw3);
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblCardDraw3, 10, SpringLayout.NORTH, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblCardDraw3, 96, SpringLayout.NORTH, lblCardDraw1);
+		lblCardDraw3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		drawPanel.add(lblCardDraw3);
+		
+		JLabel lblCardDrawTurn = new JLabel("");
+		lblCardDrawTurn.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblCardDrawTurn, 0, SpringLayout.NORTH, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblCardDrawTurn, 25, SpringLayout.EAST, lblCardDraw3);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblCardDrawTurn, 96, SpringLayout.NORTH, lblCardDraw1);
+		lblCardDrawTurn.setBorder(new LineBorder(new Color(0, 0, 0)));
+		drawPanel.add(lblCardDrawTurn);
+		
+		JLabel lblCardDrawRiver = new JLabel("");
+		lblCardDrawRiver.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblCardDrawTurn, -21, SpringLayout.WEST, lblCardDrawRiver);
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblCardDrawRiver, 0, SpringLayout.NORTH, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblCardDrawRiver, -82, SpringLayout.EAST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblCardDrawRiver, 96, SpringLayout.NORTH, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblCardDrawRiver, -10, SpringLayout.EAST, drawPanel);
+		lblCardDrawRiver.setBorder(new LineBorder(new Color(0, 0, 0)));
+		drawPanel.add(lblCardDrawRiver);
+		
+		JButton btnRaise = new JButton("Raise");
+		btnRaise.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		drawPanel.add(btnRaise);
+		
+		JButton btnFold = new JButton("Fold");
+		btnFold.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		drawPanel.add(btnFold);
+		
+		JButton btnCheck = new JButton("Check");
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, btnRaise, -33, SpringLayout.NORTH, btnCheck);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, btnRaise, 0, SpringLayout.EAST, btnCheck);
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, btnFold, 0, SpringLayout.NORTH, btnCheck);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, btnFold, 41, SpringLayout.EAST, btnCheck);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, btnCheck, -26, SpringLayout.SOUTH, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, btnCheck, -256, SpringLayout.EAST, drawPanel);
+		btnCheck.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		drawPanel.add(btnCheck);
+		
+		JSpinner spinner = new JSpinner();
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, spinner, 0, SpringLayout.NORTH, btnRaise);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, spinner, 43, SpringLayout.EAST, btnRaise);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, spinner, -34, SpringLayout.NORTH, btnFold);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, spinner, 0, SpringLayout.EAST, btnFold);
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		drawPanel.add(spinner);
+		SpringLayout sl_dealerPanel = new SpringLayout();
+		dealerPanel.setLayout(sl_dealerPanel);
+		
+		JLabel lblCurrentPot = new JLabel("Current Pot: ");
+		lblCurrentPot.setForeground(new Color(255, 255, 255));
+		lblCurrentPot.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(lblCurrentPot);
+		
+		JLabel lblCurrentBet = new JLabel("Current Bet:");
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblCurrentPot, 0, SpringLayout.NORTH, lblCurrentBet);
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, lblCurrentBet, 10, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, lblCurrentBet, -178, SpringLayout.EAST, dealerPanel);
+		lblCurrentBet.setForeground(new Color(255, 255, 255));
+		lblCurrentBet.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(lblCurrentBet);
+		
+		JButton btnNewButton = new JButton("Deal");
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, btnNewButton, -372, SpringLayout.EAST, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, btnNewButton, 6, SpringLayout.NORTH, dealerPanel);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(btnNewButton);
+		
+		textFieldCurrentPot = new JTextField();
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, textFieldCurrentPot, 7, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.WEST, textFieldCurrentPot, 177, SpringLayout.WEST, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, textFieldCurrentPot, -76, SpringLayout.WEST, btnNewButton);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, lblCurrentPot, 0, SpringLayout.WEST, textFieldCurrentPot);
+		textFieldCurrentPot.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		dealerPanel.add(textFieldCurrentPot);
+		textFieldCurrentPot.setColumns(10);
+		
+		textFieldCurrentBet = new JTextField();
+		sl_dealerPanel.putConstraint(SpringLayout.NORTH, textFieldCurrentBet, 7, SpringLayout.NORTH, dealerPanel);
+		sl_dealerPanel.putConstraint(SpringLayout.WEST, textFieldCurrentBet, 6, SpringLayout.EAST, lblCurrentBet);
+		sl_dealerPanel.putConstraint(SpringLayout.EAST, textFieldCurrentBet, -40, SpringLayout.EAST, dealerPanel);
+		textFieldCurrentBet.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		textFieldCurrentBet.setColumns(10);
+		dealerPanel.add(textFieldCurrentBet);
+		contentPane.setLayout(gl_contentPane);
+	}
+}
