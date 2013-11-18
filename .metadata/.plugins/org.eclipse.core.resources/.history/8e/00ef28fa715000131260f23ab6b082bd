@@ -7,7 +7,6 @@ public class Player
 	private int money, numCards;
 	private Card[] playerCards;
 	private boolean computerControlled;
-	private boolean inPlay;
 	
 	public Player(String name, int startingMoney, int ai)
 	{
@@ -19,7 +18,6 @@ public class Player
 			computerControlled = false;
 		playerCards = new Card[5];
 		numCards = 0;
-		inPlay = true;
 	}
 	
 	public String getName()
@@ -42,11 +40,6 @@ public class Player
 		return computerControlled;
 	}
 	
-	public boolean isInPlay()
-	{
-		return inPlay;
-	}
-	
 	public void receiveCard(Card card)
 	{
 		if (numCards < (MAX_CARDS - 1))
@@ -60,18 +53,5 @@ public class Player
 		money += winnings;
 	}
 	
-	public void call()
-	{
-		
-	}
 	
-	public void check()
-	{
-		
-	}
-	
-	public void fold()
-	{
-		inPlay = false;
-	}
 }
