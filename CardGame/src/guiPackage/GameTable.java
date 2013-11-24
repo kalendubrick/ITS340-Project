@@ -1,6 +1,5 @@
 package guiPackage;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,16 +19,17 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
-import java.awt.Dimension;
 import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
-import javax.swing.border.SoftBevelBorder;
 import javax.swing.SwingConstants;
 
 public class GameTable extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -96,6 +96,18 @@ public class GameTable extends JFrame {
 		ai2Panel.setBackground(new Color(0, 100, 0));
 		SpringLayout sl_ai2Panel = new SpringLayout();
 		ai2Panel.setLayout(sl_ai2Panel);
+		
+		JPanel ai3Panel = new JPanel();
+		ai3Panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		ai3Panel.setBackground(new Color(0, 100, 0));
+		SpringLayout sl_ai3Panel = new SpringLayout();
+		ai3Panel.setLayout(sl_ai3Panel);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel.setBackground(new Color(0, 100, 0));
+		SpringLayout sl_panel = new SpringLayout();
+		panel.setLayout(sl_panel);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -112,26 +124,142 @@ public class GameTable extends JFrame {
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
 								.addComponent(playerPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(drawPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))))
-					.addContainerGap(40, Short.MAX_VALUE))
+								.addComponent(drawPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
+								.addComponent(ai3Panel, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(dealerPanel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(drawPanel, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-							.addComponent(playerPanel, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addComponent(ai1Panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-							.addGap(26)
-							.addComponent(ai2Panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-							.addGap(14)))
-					.addContainerGap())
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(drawPanel, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+									.addComponent(playerPanel, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(ai1Panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+									.addGap(26)
+									.addComponent(ai2Panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+									.addGap(14)))
+							.addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(43)
+							.addComponent(ai3Panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+							.addGap(24))))
 		);
+		
+		JLabel lblAiName4 = new JLabel("A.I. 4");
+		sl_panel.putConstraint(SpringLayout.NORTH, lblAiName4, 10, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblAiName4, 10, SpringLayout.WEST, panel);
+		lblAiName4.setForeground(Color.WHITE);
+		lblAiName4.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		panel.add(lblAiName4);
+		
+		JLabel lblAi4Funds = new JLabel("Funds:");
+		sl_panel.putConstraint(SpringLayout.WEST, lblAi4Funds, 0, SpringLayout.WEST, lblAiName4);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblAi4Funds, -10, SpringLayout.SOUTH, panel);
+		lblAi4Funds.setForeground(Color.WHITE);
+		lblAi4Funds.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		panel.add(lblAi4Funds);
+		
+		JLabel lblAi4Status = new JLabel("Check");
+		sl_panel.putConstraint(SpringLayout.NORTH, lblAi4Status, 0, SpringLayout.NORTH, lblAiName4);
+		sl_panel.putConstraint(SpringLayout.WEST, lblAi4Status, 47, SpringLayout.EAST, lblAiName4);
+		sl_panel.putConstraint(SpringLayout.EAST, lblAi4Status, -10, SpringLayout.EAST, panel);
+		lblAi4Status.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAi4Status.setForeground(Color.WHITE);
+		lblAi4Status.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblAi4Status.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		panel.add(lblAi4Status);
+		
+		JLabel lblAi4FundsTotal = new JLabel("$500");
+		sl_panel.putConstraint(SpringLayout.NORTH, lblAi4FundsTotal, -2, SpringLayout.NORTH, lblAi4Funds);
+		sl_panel.putConstraint(SpringLayout.WEST, lblAi4FundsTotal, 34, SpringLayout.EAST, lblAi4Funds);
+		sl_panel.putConstraint(SpringLayout.EAST, lblAi4FundsTotal, -10, SpringLayout.EAST, panel);
+		lblAi4FundsTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAi4FundsTotal.setForeground(Color.ORANGE);
+		lblAi4FundsTotal.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblAi4FundsTotal.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		panel.add(lblAi4FundsTotal);
+		
+		JLabel lblAi4Card1 = new JLabel("");
+		lblAi4Card1.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_panel.putConstraint(SpringLayout.NORTH, lblAi4Card1, -102, SpringLayout.NORTH, lblAi4Funds);
+		sl_panel.putConstraint(SpringLayout.WEST, lblAi4Card1, 0, SpringLayout.WEST, lblAiName4);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblAi4Card1, -6, SpringLayout.NORTH, lblAi4Funds);
+		sl_panel.putConstraint(SpringLayout.EAST, lblAi4Card1, 72, SpringLayout.WEST, lblAiName4);
+		lblAi4Card1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.add(lblAi4Card1);
+		
+		JLabel lblAi4Card2 = new JLabel("");
+		lblAi4Card2.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_panel.putConstraint(SpringLayout.NORTH, lblAi4Card2, 0, SpringLayout.NORTH, lblAi4Card1);
+		sl_panel.putConstraint(SpringLayout.WEST, lblAi4Card2, 27, SpringLayout.EAST, lblAi4Card1);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblAi4Card2, -6, SpringLayout.NORTH, lblAi4FundsTotal);
+		sl_panel.putConstraint(SpringLayout.EAST, lblAi4Card2, -10, SpringLayout.EAST, panel);
+		lblAi4Card2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.add(lblAi4Card2);
+		
+		JLabel lblAiName3 = new JLabel("A.I. 3");
+		sl_ai3Panel.putConstraint(SpringLayout.NORTH, lblAiName3, 10, SpringLayout.NORTH, ai3Panel);
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAiName3, 10, SpringLayout.WEST, ai3Panel);
+		lblAiName3.setForeground(Color.WHITE);
+		lblAiName3.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		ai3Panel.add(lblAiName3);
+		
+		JLabel lblAi3Funds = new JLabel("Funds:");
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAi3Funds, 0, SpringLayout.WEST, lblAiName3);
+		sl_ai3Panel.putConstraint(SpringLayout.SOUTH, lblAi3Funds, -10, SpringLayout.SOUTH, ai3Panel);
+		lblAi3Funds.setForeground(Color.WHITE);
+		lblAi3Funds.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		ai3Panel.add(lblAi3Funds);
+		
+		JLabel lblAi3Status = new JLabel("Check");
+		sl_ai3Panel.putConstraint(SpringLayout.NORTH, lblAi3Status, -2, SpringLayout.NORTH, lblAiName3);
+		lblAi3Status.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAi3Status.setForeground(Color.WHITE);
+		lblAi3Status.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblAi3Status.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		ai3Panel.add(lblAi3Status);
+		
+		JLabel lblAi3Card1 = new JLabel("");
+		lblAi3Card1.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_ai3Panel.putConstraint(SpringLayout.NORTH, lblAi3Card1, 6, SpringLayout.SOUTH, lblAiName3);
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAi3Card1, 0, SpringLayout.WEST, lblAiName3);
+		sl_ai3Panel.putConstraint(SpringLayout.SOUTH, lblAi3Card1, 102, SpringLayout.SOUTH, lblAiName3);
+		sl_ai3Panel.putConstraint(SpringLayout.EAST, lblAi3Card1, 72, SpringLayout.WEST, lblAiName3);
+		lblAi3Card1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		ai3Panel.add(lblAi3Card1);
+		
+		JLabel lblAi3Card2 = new JLabel("");
+		lblAi3Card2.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAi3Status, 0, SpringLayout.WEST, lblAi3Card2);
+		sl_ai3Panel.putConstraint(SpringLayout.EAST, lblAi3Status, 0, SpringLayout.EAST, lblAi3Card2);
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAi3Card2, 29, SpringLayout.EAST, lblAi3Card1);
+		sl_ai3Panel.putConstraint(SpringLayout.EAST, lblAi3Card2, -10, SpringLayout.EAST, ai3Panel);
+		sl_ai3Panel.putConstraint(SpringLayout.NORTH, lblAi3Card2, -96, SpringLayout.SOUTH, lblAi3Card1);
+		sl_ai3Panel.putConstraint(SpringLayout.SOUTH, lblAi3Card2, 0, SpringLayout.SOUTH, lblAi3Card1);
+		lblAi3Card2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		ai3Panel.add(lblAi3Card2);
+		
+		JLabel lblAi3FundsTotal = new JLabel("$500");
+		sl_ai3Panel.putConstraint(SpringLayout.WEST, lblAi3FundsTotal, 0, SpringLayout.WEST, lblAi3Status);
+		sl_ai3Panel.putConstraint(SpringLayout.SOUTH, lblAi3FundsTotal, 0, SpringLayout.SOUTH, lblAi3Funds);
+		sl_ai3Panel.putConstraint(SpringLayout.EAST, lblAi3FundsTotal, 0, SpringLayout.EAST, lblAi3Status);
+		lblAi3FundsTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAi3FundsTotal.setForeground(Color.ORANGE);
+		lblAi3FundsTotal.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblAi3FundsTotal.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		ai3Panel.add(lblAi3FundsTotal);
 		
 		JLabel lblAiName2 = new JLabel("A.I. 2");
 		sl_ai2Panel.putConstraint(SpringLayout.NORTH, lblAiName2, 10, SpringLayout.NORTH, ai2Panel);
@@ -147,28 +275,28 @@ public class GameTable extends JFrame {
 		lblAi2Funds.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		ai2Panel.add(lblAi2Funds);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
-		sl_ai2Panel.putConstraint(SpringLayout.NORTH, label_4, -102, SpringLayout.NORTH, lblAi2Funds);
-		sl_ai2Panel.putConstraint(SpringLayout.WEST, label_4, 0, SpringLayout.WEST, lblAiName2);
-		sl_ai2Panel.putConstraint(SpringLayout.SOUTH, label_4, -6, SpringLayout.NORTH, lblAi2Funds);
-		sl_ai2Panel.putConstraint(SpringLayout.EAST, label_4, 72, SpringLayout.WEST, lblAiName2);
-		label_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		ai2Panel.add(label_4);
+		JLabel lblAi2Card1 = new JLabel("");
+		lblAi2Card1.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_ai2Panel.putConstraint(SpringLayout.NORTH, lblAi2Card1, -102, SpringLayout.NORTH, lblAi2Funds);
+		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2Card1, 0, SpringLayout.WEST, lblAiName2);
+		sl_ai2Panel.putConstraint(SpringLayout.SOUTH, lblAi2Card1, -6, SpringLayout.NORTH, lblAi2Funds);
+		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2Card1, 72, SpringLayout.WEST, lblAiName2);
+		lblAi2Card1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		ai2Panel.add(lblAi2Card1);
 		
-		JLabel label_5 = new JLabel("");
-		label_5.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
-		sl_ai2Panel.putConstraint(SpringLayout.NORTH, label_5, 0, SpringLayout.NORTH, label_4);
-		sl_ai2Panel.putConstraint(SpringLayout.WEST, label_5, 27, SpringLayout.EAST, label_4);
-		sl_ai2Panel.putConstraint(SpringLayout.SOUTH, label_5, 96, SpringLayout.NORTH, label_4);
-		sl_ai2Panel.putConstraint(SpringLayout.EAST, label_5, 99, SpringLayout.EAST, label_4);
-		label_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		ai2Panel.add(label_5);
+		JLabel lblAi2Card2 = new JLabel("");
+		lblAi2Card2.setIcon(new ImageIcon(GameTable.class.getResource("/resources/b2fv.png")));
+		sl_ai2Panel.putConstraint(SpringLayout.NORTH, lblAi2Card2, 0, SpringLayout.NORTH, lblAi2Card1);
+		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2Card2, 27, SpringLayout.EAST, lblAi2Card1);
+		sl_ai2Panel.putConstraint(SpringLayout.SOUTH, lblAi2Card2, 96, SpringLayout.NORTH, lblAi2Card1);
+		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2Card2, 99, SpringLayout.EAST, lblAi2Card1);
+		lblAi2Card2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		ai2Panel.add(lblAi2Card2);
 		
 		JLabel lblAi2FundsTotal = new JLabel("$500");
 		sl_ai2Panel.putConstraint(SpringLayout.NORTH, lblAi2FundsTotal, 0, SpringLayout.NORTH, lblAi2Funds);
-		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2FundsTotal, 0, SpringLayout.WEST, label_5);
-		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2FundsTotal, 0, SpringLayout.EAST, label_5);
+		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2FundsTotal, 0, SpringLayout.WEST, lblAi2Card2);
+		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2FundsTotal, 0, SpringLayout.EAST, lblAi2Card2);
 		lblAi2FundsTotal.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAi2FundsTotal.setForeground(Color.ORANGE);
 		lblAi2FundsTotal.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -177,8 +305,8 @@ public class GameTable extends JFrame {
 		
 		JLabel lblAi2Status = new JLabel("Check");
 		sl_ai2Panel.putConstraint(SpringLayout.NORTH, lblAi2Status, -2, SpringLayout.NORTH, lblAiName2);
-		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2Status, 0, SpringLayout.WEST, label_5);
-		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2Status, 0, SpringLayout.EAST, label_5);
+		sl_ai2Panel.putConstraint(SpringLayout.WEST, lblAi2Status, 0, SpringLayout.WEST, lblAi2Card2);
+		sl_ai2Panel.putConstraint(SpringLayout.EAST, lblAi2Status, 0, SpringLayout.EAST, lblAi2Card2);
 		lblAi2Status.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAi2Status.setForeground(Color.WHITE);
 		lblAi2Status.setFont(new Font("Tahoma", Font.PLAIN, 22));
