@@ -23,7 +23,6 @@ import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
 import javax.swing.SwingConstants;
-import javax.swing.border.MatteBorder;
 
 public class GameTable extends JFrame {
 
@@ -470,12 +469,10 @@ public class GameTable extends JFrame {
 		drawPanel.add(lblCardDrawRiver);
 		
 		JButton btnRaise = new JButton("Raise");
-		sl_drawPanel.putConstraint(SpringLayout.EAST, btnRaise, -256, SpringLayout.EAST, drawPanel);
 		btnRaise.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		drawPanel.add(btnRaise);
 		
 		JButton btnFold = new JButton("Fold");
-		sl_drawPanel.putConstraint(SpringLayout.SOUTH, btnRaise, -22, SpringLayout.NORTH, btnFold);
 		sl_drawPanel.putConstraint(SpringLayout.WEST, btnFold, 0, SpringLayout.WEST, lblCardDraw3);
 		btnFold.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		drawPanel.add(btnFold);
@@ -483,15 +480,17 @@ public class GameTable extends JFrame {
 		JButton btnCheck = new JButton("Check");
 		sl_drawPanel.putConstraint(SpringLayout.SOUTH, btnCheck, -26, SpringLayout.SOUTH, drawPanel);
 		sl_drawPanel.putConstraint(SpringLayout.NORTH, btnFold, 0, SpringLayout.NORTH, btnCheck);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, btnRaise, -33, SpringLayout.NORTH, btnCheck);
 		sl_drawPanel.putConstraint(SpringLayout.EAST, btnCheck, 0, SpringLayout.EAST, lblCardDraw2);
 		btnCheck.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		drawPanel.add(btnCheck);
 		
 		JSpinner spinner = new JSpinner();
-		sl_drawPanel.putConstraint(SpringLayout.NORTH, spinner, 1, SpringLayout.NORTH, btnRaise);
-		sl_drawPanel.putConstraint(SpringLayout.WEST, spinner, 44, SpringLayout.EAST, btnRaise);
-		sl_drawPanel.putConstraint(SpringLayout.SOUTH, spinner, -22, SpringLayout.NORTH, btnFold);
-		sl_drawPanel.putConstraint(SpringLayout.EAST, spinner, -141, SpringLayout.EAST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, spinner, 47, SpringLayout.SOUTH, lblCardDraw3);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, spinner, 259, SpringLayout.WEST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, spinner, -34, SpringLayout.NORTH, btnFold);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, spinner, -142, SpringLayout.EAST, drawPanel);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, btnRaise, -43, SpringLayout.WEST, spinner);
 		spinner.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		drawPanel.add(spinner);
 		
@@ -502,16 +501,16 @@ public class GameTable extends JFrame {
 		drawPanel.add(btnCall);
 		
 		JLabel lblHandQ = new JLabel("FULL HOUSE");
-		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblHandQ, 6, SpringLayout.SOUTH, lblCardDraw1);
-		sl_drawPanel.putConstraint(SpringLayout.WEST, lblHandQ, 2, SpringLayout.WEST, lblCardDraw1);
-		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblHandQ, -17, SpringLayout.NORTH, btnRaise);
-		sl_drawPanel.putConstraint(SpringLayout.EAST, lblHandQ, 0, SpringLayout.EAST, lblCardDrawRiver);
 		lblHandQ.setBackground(Color.WHITE);
 		lblHandQ.setOpaque(true);
 		lblHandQ.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHandQ.setForeground(Color.BLACK);
 		lblHandQ.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblHandQ.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		sl_drawPanel.putConstraint(SpringLayout.NORTH, lblHandQ, 6, SpringLayout.SOUTH, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.WEST, lblHandQ, 0, SpringLayout.WEST, lblCardDraw1);
+		sl_drawPanel.putConstraint(SpringLayout.SOUTH, lblHandQ, -12, SpringLayout.NORTH, btnRaise);
+		sl_drawPanel.putConstraint(SpringLayout.EAST, lblHandQ, -12, SpringLayout.EAST, drawPanel);
+		lblHandQ.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		drawPanel.add(lblHandQ);
 		SpringLayout sl_dealerPanel = new SpringLayout();
 		dealerPanel.setLayout(sl_dealerPanel);

@@ -1,7 +1,0 @@
-package guiCreation;
-
-import javax.swing.JFrame;
-
-public class GameBoardFrame extends JFrame {
-
-}
