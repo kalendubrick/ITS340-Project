@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="38" version="2.0">
+<workbench progressCount="32" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="78" y="78">
 <fastViewData fastViewLocation="1024"/>
@@ -10,9 +10,9 @@
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="214" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -41,11 +41,11 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.wb.core.guiEditor" name="GameTable.java" partName="GameTable.java" path="G:/GitHub/ITS340-Project/CardGame/src/guiPackage/GameTable.java" title="GameTable.java" tooltip="CardGame/src/guiPackage/GameTable.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.wb.core.guiEditor" name="GameTable.java" partName="GameTable.java" path="G:/GitHub/ITS340-Project/CardGame/src/guiPackage/GameTable.java" title="GameTable.java" tooltip="CardGame/src/guiPackage/GameTable.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CardGame/src/guiPackage/GameTable.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1298" selectionTopPixel="442"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1847" selectionTopPixel="1003"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Card.java" partName="Card.java" path="G:/GitHub/ITS340-Project/CardGame/src/Card.java" title="Card.java" tooltip="CardGame/src/Card.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Card.java" partName="Card.java" path="G:/GitHub/ITS340-Project/CardGame/src/Card.java" title="Card.java" tooltip="CardGame/src/Card.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CardGame/src/Card.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
@@ -195,25 +195,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CardGame/src/Player.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CardGame/src/Stack.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CardGame/src/TexasHoldEm.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wb.core.guiEditor" path="/CardGame/src/guiPackage/GameTable.java"/>
 </editors>
-<item historyLabel="GameTable.java" index="0">
-<position/>
-</item>
-<item historyLabel="GameTable.java" index="0">
-<position info="not_deleted" x="10130" y="0"/>
-</item>
-<item historyLabel="GameTable.java" index="0">
-<position info="not_deleted" x="8140" y="0"/>
-</item>
-<item historyLabel="GameTable.java" index="0">
-<position info="not_deleted" x="2773" y="0"/>
-</item>
-<item historyLabel="GameTable.java" index="0">
-<position/>
-</item>
-<item historyLabel="GameTable.java" index="0">
-<position info="not_deleted" x="11133" y="0"/>
-</item>
 <item historyLabel="GameTable.java" index="0">
 <position/>
 </item>
@@ -343,8 +326,26 @@
 <item historyLabel="TexasHoldEm.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="Card.java" index="1">
+<item historyLabel="Card.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GameTable.java" index="8">
+<position info="not_deleted" x="1298" y="0"/>
+</item>
+<item historyLabel="GameTable.java" index="8">
+<position info="not_deleted" x="1776" y="0"/>
+</item>
+<item historyLabel="GameTable.java" index="8">
+<position/>
+</item>
+<item historyLabel="GameTable.java" index="8">
+<position/>
+</item>
+<item historyLabel="GameTable.java" index="8">
+<position info="not_deleted" x="1436" y="0"/>
+</item>
+<item active="true" historyLabel="GameTable.java" index="8">
+<position info="not_deleted" x="1847" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
