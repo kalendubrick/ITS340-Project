@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public final class Hand 
 {
-	public static void determineHand(ArrayList<Card> cards)
+	public static HandRank determineHand(ArrayList<Card> cards)
 	{
 		int[] ranks;
+		int highestCount = 0, midCount = 0, lowestCount = 0;
+		int highIndex = 0, midIndex = 0, lowIndex = 0;
 		
 		ranks = new int[13];
 		
@@ -22,10 +24,30 @@ public final class Hand
 			ranks[cards.get(i).getRank()-2]++;
 		}
 		
-		// display histogram
+		// count and display histogram
 		for (int j = 0; j < ranks.length; j++)
 		{
+			if (ranks[j] >= highestCount)
+			{
+				if (highestCount != 0)
+				{
+					if (midCount != 0)
+					{
+						lowestCount = midCount;
+						lowIndex = midIndex;
+					}
+					midCount = highestCount;
+					midIndex = highIndex;
+				}
+				highestCount = ranks[j];
+				highIndex = j;
+			}
 			System.out.println(ranks[j] + " of " + (j+2));
 		}
+		
+		System.out.printf("Counts: %d, %d, %d\n", highestCount, midCount, lowestCount);
+		
+		return HandRank.ROYAL_FLUSH;
+		
 	}
 }

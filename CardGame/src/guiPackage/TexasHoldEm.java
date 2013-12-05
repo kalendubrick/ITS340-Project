@@ -53,6 +53,8 @@ public class TexasHoldEm
 		communityCards[0].setVisible(true);
 		communityCards[1].setVisible(true);
 		communityCards[2].setVisible(true);
+		//communityCards[3].setVisible(true);
+		//communityCards[4].setVisible(true);
 		
 		for (int j = 0; j < communityCards.length; j++)
 		{
