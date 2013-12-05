@@ -24,6 +24,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameTable extends JFrame {
 
@@ -32,6 +34,7 @@ public class GameTable extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private TexasHoldEm the;
 
 	/**
 	 * Launch the application.
@@ -531,6 +534,12 @@ public class GameTable extends JFrame {
 		dealerPanel.add(lblCurrentBet);
 		
 		JButton btnNewButton = new JButton("Deal");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				the.playGame();
+			}
+		});
 		sl_dealerPanel.putConstraint(SpringLayout.EAST, btnNewButton, -372, SpringLayout.EAST, dealerPanel);
 		sl_dealerPanel.putConstraint(SpringLayout.NORTH, btnNewButton, 6, SpringLayout.NORTH, dealerPanel);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -556,5 +565,7 @@ public class GameTable extends JFrame {
 		lblCurrentBetTotal.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		dealerPanel.add(lblCurrentBetTotal);
 		contentPane.setLayout(gl_contentPane);
+		
+		the = new TexasHoldEm();
 	}
 }
