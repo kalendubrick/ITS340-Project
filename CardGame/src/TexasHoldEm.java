@@ -46,6 +46,11 @@ public class TexasHoldEm
 		{
 			hand.add(testCards[i]);
 		}
+		// set first 3 cards as visible
+		hand.get(0).setVisible(true);
+		hand.get(1).setVisible(true);
+		hand.get(2).setVisible(true);
+		
 		for (int j = 0; j < communityCards.length; j++)
 		{
 			if (communityCards[j].isVisible())

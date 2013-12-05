@@ -8,7 +8,13 @@ public final class Hand
 	{
 		int[] ranks;
 		
-		ranks = new int[12];
+		ranks = new int[13];
+		
+		// what cards do we have?
+		for (Card card : cards)
+		{
+			System.out.println(card.toString());
+		}
 		
 		// make histogram
 		for (int i = 0; i < cards.size(); i++)
