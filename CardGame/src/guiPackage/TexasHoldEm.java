@@ -62,7 +62,7 @@ public class TexasHoldEm
 				hand.add(communityCards[j]);
 		}
 		
-		Hand.determineHand(hand);
+		HandCalc.determineHand(hand);
 		
 		while (round < 5)
 		{
