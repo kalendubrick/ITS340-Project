@@ -7,7 +7,7 @@ public class Hand
 	private Card highCard, kicker, secondPairHighCard;
 	private HandRank finalHand;
 	
-	// constructor for pair, high card, straight, set
+	// constructor for pair, high card, straight
 	public Hand(Card highCard, HandRank finalHand)
 	{
 		this.highCard = highCard;

@@ -12,7 +12,6 @@ public final class HandCalc
 		int highIndex = 0, midIndex = 0, lowIndex = 0;
 		HandRank finalHand;
 		Card highCard = cards.get(0); // initially set highcard as first card
-		Hand bestHand;
 		
 		// what cards do we have?
 		for (Card card : cards)
@@ -85,45 +84,6 @@ public final class HandCalc
 		if (areSameSuit(cards) && finalHand.getRank() < HandRank.FLUSH.getRank())
 			finalHand = HandRank.FLUSH;
 		
-		// only check for straight if we know we don't have any paired cards
-		if (!finalHand.equals(HandRank.BOAT)
-				&& !finalHand.equals(HandRank.QUADS)
-				&& !finalHand.equals(HandRank.SET)
-				&& !finalHand.equals(HandRank.TWO_PAIR)
-				&& !finalHand.equals(HandRank.PAIR))
-		{
-			// sort cards by rank to check for a straight/straight flush/royal flush
-			cards = sortByRank(cards);
-			
-			if (cards.get(4).getRank() - cards.get(0).getRank() == 4) // straight
-			{
-				if (finalHand.equals(HandRank.FLUSH))
-				{
-					if (cards.get(4).getRank() == 14) // ace high, so royal flush
-						finalHand = HandRank.ROYAL_FLUSH;
-					else
-						finalHand = HandRank.STRAIGHT_FLUSH;
-				}
-				else
-					finalHand = HandRank.STRAIGHT;
-			}
-		}
-		
-		// figure what else we need to build the hand
-		switch(finalHand)
-		{
-			case PAIR: case STRAIGHT: case HIGH_CARD: case SET: case STRAIGHT_FLUSH: case FLUSH:
-				break;
-			case TWO_PAIR:
-				break;
-			case QUADS:
-				break;
-			case BOAT:
-				break;
-			case ROYAL_FLUSH:
-				
-		}
-		
 		return finalHand;
 		
 	}
@@ -169,16 +129,7 @@ public final class HandCalc
 	
 	private static Card getHighCard(ArrayList<Card> cards)
 	{
-		int highCard = 0;
-		
-		for (int i = 1; i < cards.size(); i++)
-		{
-			if (cards.get(highCard).getRank() < cards.get(i).getRank())
-			{
-				highCard = i;
-			}
-		}
-		
-		return cards.get(highCard);
+	
+		return new Card("Hearts", "2");
 	}
 }

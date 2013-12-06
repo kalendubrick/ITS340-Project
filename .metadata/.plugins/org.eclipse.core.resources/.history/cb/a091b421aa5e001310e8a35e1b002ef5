@@ -70,23 +70,4 @@ public class TexasHoldEm
 			round++;
 		}
 	}
-	
-	public Card[] getCommunityCards()
-	{
-		return communityCards;
-	}
-	
-	
-	public Card[] getPlayerCards(String playerName)
-	{
-		Card[] cards = null;
-		
-		for (Player player : players)
-		{
-			if (playerName.equals(player.getName()))
-				return player.getPlayerCards();
-		}
-		
-		return cards; // returns null if playerName does not match any players
-	}
 }
